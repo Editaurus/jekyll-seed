@@ -1,0 +1,29 @@
+<div class="columns four">
+    <ul class="contact-list">
+        {% if site.title and site.title != '' %}
+            <li>{{ site.title }}</li>
+        {% endif %}
+        {% if site.email and site.email != '' %}
+            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        {% endif %}
+    </ul>
+</div>
+
+<div class="columns four">
+    <ul class="social-media-list">
+        {% for social in site.social_media %}
+            {% for info in social %}
+                {% if info.text and info.text != '' and info.url and info.url != '' %}
+                    <li>
+                        <i class="icon fa fa-fw fa-{{ social[0] }}"></i>
+                        <a href="{{ info.url }}" target="_blank">{{ info.text }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="columns four">
+    <p class="text">{{ site.description }}</p>
+</div>
